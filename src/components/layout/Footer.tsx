@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Database, Twitter, Linkedin, Github, Youtube, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { Twitter, Linkedin, Github, Youtube, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 
 const footerLinks = {
   Programs: [
@@ -72,12 +73,18 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6 group w-fit">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-green-neon/20 to-green-neon/5 border border-green-neon/30 flex items-center justify-center">
-                <Database className="w-5 h-5 text-green-neon" />
+              <div className="w-11 h-11 rounded-xl overflow-hidden border border-white/10">
+                <Image
+                  src="/data_sherpa_logo.png"
+                  alt="DataSherpas Logo"
+                  width={44}
+                  height={44}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
-                <span className="font-display font-bold text-xl text-white">Data</span>
-                <span className="font-display font-bold text-xl text-green-neon">Sherpas</span>
+                <span className="font-display font-bold text-2xl text-white">Data</span>
+                <span className="font-display font-bold text-2xl text-green-neon">Sherpas</span>
               </div>
             </Link>
 

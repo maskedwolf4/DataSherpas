@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Database, ChevronRight } from 'lucide-react'
+import { Menu, X, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -52,13 +53,19 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-green-neon/20 to-green-neon/5 border border-green-neon/30 flex items-center justify-center transition-all duration-300 group-hover:border-green-neon/60 group-hover:shadow-neon-sm">
-                <Database className="w-5 h-5 text-green-neon" />
-                <div className="absolute inset-0 rounded-xl bg-green-neon/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative w-12 h-12 rounded-2xl overflow-hidden transition-all duration-300 group-hover:shadow-neon-sm border border-white/10 group-hover:border-green-neon/30">
+                <Image
+                  src="/data_sherpa_logo.png"
+                  alt="DataSherpas Logo"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
               <div>
-                <span className="font-display font-bold text-lg text-white">Data</span>
-                <span className="font-display font-bold text-lg text-green-neon">Sherpas</span>
+                <span className="font-display font-bold text-2xl text-white">Data</span>
+                <span className="font-display font-bold text-2xl text-green-neon">Sherpas</span>
               </div>
             </Link>
 

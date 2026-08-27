@@ -4,9 +4,10 @@ import Link from 'next/link'
 import { ArrowRight, ChevronDown, Zap, Target, Users, TrendingUp, Star, CheckCircle2, Play, Code2, Database, Cpu, GitBranch } from 'lucide-react'
 import CountUp from '@/components/ui/CountUp'
 import Reveal from '@/components/ui/Reveal'
-import HeroScene from '@/components/3d/HeroScene'
 import FloatingTorus from '@/components/3d/FloatingTorus'
 import DataFlowScene from '@/components/3d/DataFlowScene'
+import ScrollAnimation from '@/components/ui/ScrollAnimation'
+import Image from 'next/image'
 
 const stats = [
   { value: 500, suffix: '+', label: 'Engineers Placed' },
@@ -116,81 +117,124 @@ export default function HomePage() {
 
       {/* ====== HERO SECTION ====== */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* 3D / CSS Background */}
-        <HeroScene />
-
-        {/* Grid overlay */}
-        <div className="absolute inset-0 bg-grid opacity-40" />
-
-        {/* Radial hero glow */}
-        <div className="absolute inset-0 bg-hero-gradient" />
+        {/* Background Effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Grid overlay */}
+          <div className="absolute inset-0 bg-grid opacity-40" />
+          {/* Radial hero glow */}
+          <div className="absolute inset-0 bg-hero-gradient" />
+          {/* Star field */}
+          {Array.from({ length: 60 }).map((_, i) => {
+            const size = i % 5 === 0 ? 2 : 1
+            return (
+              <div
+                key={i}
+                className="absolute rounded-full bg-white"
+                style={{
+                  width: size,
+                  height: size,
+                  top: `${(i * 13.7) % 100}%`,
+                  left: `${(i * 23.1) % 100}%`,
+                  opacity: 0.08 + (i % 5) * 0.06,
+                  animation: `pulse ${2 + (i % 4)}s ease-in-out infinite`,
+                  animationDelay: `${(i * 0.3) % 4}s`,
+                }}
+              />
+            )
+          })}
+        </div>
 
         {/* Gradient bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-dark-bg to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-dark-bg to-transparent z-10" />
 
-        <div className="relative z-10 section-padding section-inner pt-32 pb-20">
-          <div className="max-w-4xl">
+        <div className="relative z-10 section-padding section-inner pt-32 pb-20 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column — Text Content */}
+            <div className="text-left">
+              {/* Badge */}
+              <Reveal delay={0}>
+                <div className="inline-flex items-center gap-2 badge badge-green mb-8">
+                  <span className="neon-dot animate-pulse" />
+                  <span>India&apos;s #1 Data Engineering Career Platform</span>
+                </div>
+              </Reveal>
 
-            {/* Badge */}
-            <Reveal delay={0}>
-              <div className="inline-flex items-center gap-2 badge badge-green mb-8">
-                <span className="neon-dot animate-pulse" />
-                <span>India&apos;s #1 Data Engineering Career Platform</span>
-              </div>
-            </Reveal>
+              {/* Main Heading */}
+              <Reveal delay={100}>
+                <h1 className="heading-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] mb-8">
+                  <span className="text-white">Guide Your Way</span>
+                  <br />
+                  <span className="text-gradient-green">Into Data</span>
+                  <br />
+                  <span className="text-white">Engineering</span>
+                </h1>
+              </Reveal>
 
-            {/* Main Heading */}
-            <Reveal delay={100}>
-              <h1 className="heading-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] mb-8">
-                <span className="text-white">Guide Your Way</span>
-                <br />
-                <span className="text-gradient-green">Into Data</span>
-                <br />
-                <span className="text-white">Engineering</span>
-              </h1>
-            </Reveal>
+              {/* Subtitle */}
+              <Reveal delay={200}>
+                <p className="text-white/60 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+                  Whether you&apos;re a fresher starting your journey or an experienced professional seeking a hike — DataSherpas provides expert mentorship, structured programs, and real-world projects to get you there.
+                </p>
+              </Reveal>
 
-            {/* Subtitle */}
-            <Reveal delay={200}>
-              <p className="text-white/60 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
-                Whether you&apos;re a fresher starting your journey or an experienced professional seeking a hike — DataSherpas provides expert mentorship, structured programs, and real-world projects to get you there.
-              </p>
-            </Reveal>
+              {/* CTA Buttons */}
+              <Reveal delay={300}>
+                <div className="flex flex-wrap gap-4 mb-12">
+                  <Link href="/programs" className="btn-primary text-sm">
+                    <span className="relative z-10">Explore Programs</span>
+                    <ArrowRight className="w-4 h-4 relative z-10" />
+                  </Link>
+                  <Link href="/roadmap" className="btn-outline text-sm">
+                    <Play className="w-4 h-4" />
+                    Free Roadmap
+                  </Link>
+                </div>
+              </Reveal>
 
-            {/* CTA Buttons */}
-            <Reveal delay={300}>
-              <div className="flex flex-wrap gap-4 mb-16">
-                <Link href="/programs" className="btn-primary text-sm">
-                  <span className="relative z-10">Explore Programs</span>
-                  <ArrowRight className="w-4 h-4 relative z-10" />
-                </Link>
-                <Link href="/roadmap" className="btn-outline text-sm">
-                  <Play className="w-4 h-4" />
-                  Free Roadmap
-                </Link>
-              </div>
-            </Reveal>
+              {/* Trust indicators */}
+              <Reveal delay={400}>
+                <div className="flex flex-wrap gap-x-8 gap-y-3">
+                  {['No prior DE experience needed', 'Flexible learning — live + async', 'Placement guarantee on select plans'].map((item) => (
+                    <div key={item} className="flex items-center gap-2 text-sm text-white/50">
+                      <CheckCircle2 className="w-4 h-4 text-green-neon flex-shrink-0" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
 
-            {/* Trust indicators */}
-            <Reveal delay={400}>
-              <div className="flex flex-wrap gap-x-8 gap-y-3">
-                {['No prior DE experience needed', 'Flexible learning — live + async', 'Placement guarantee on select plans'].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-white/50">
-                    <CheckCircle2 className="w-4 h-4 text-green-neon flex-shrink-0" />
-                    {item}
+            {/* Right Column — Large Logo */}
+            <div className="hidden lg:flex items-center justify-center">
+              <Reveal delay={200}>
+                <div className="relative w-[500px] h-[500px] xl:w-[600px] xl:h-[600px] flex items-center justify-center">
+                  {/* Glow ring behind logo */}
+                  <div className="absolute inset-[-15%] rounded-full bg-green-neon/8 blur-[100px] animate-pulse-slow" />
+                  <div className="absolute inset-[-5%] rounded-full border border-green-neon/10 opacity-50" />
+                  <div className="relative w-full h-full hero-logo-glow">
+                    <Image
+                      src="/data_sherpa_logo.png"
+                      alt="DataSherpas"
+                      fill
+                      className="object-contain opacity-90 hero-logo-float drop-shadow-2xl"
+                      priority
+                    />
                   </div>
-                ))}
-              </div>
-            </Reveal>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-20">
           <span className="text-white/30 text-xs tracking-widest uppercase">Scroll</span>
           <ChevronDown className="w-4 h-4 text-green-neon/50" />
         </div>
       </section>
+
+      {/* Scroll Sequence Section */}
+      <ScrollAnimation />
 
       {/* ====== STATS SECTION ====== */}
       <section className="py-20 border-y border-white/5 relative overflow-hidden">

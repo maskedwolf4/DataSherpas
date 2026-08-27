@@ -447,3 +447,108 @@ canvas {
   -webkit-backdrop-filter: blur(20px);
   background: rgba(8, 8, 8, 0.95);
 }
+
+/* ======= INTRO VIDEO OVERLAY ======= */
+.intro-video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: introFadeIn 0.5s ease forwards;
+}
+
+.intro-video-overlay.intro-video-fadeout {
+  animation: introFadeOut 0.8s ease forwards;
+}
+
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro-skip-btn {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: rgba(0, 255, 136, 0.15);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  color: #00ff88;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  letter-spacing: 0.5px;
+}
+
+.intro-skip-btn:hover {
+  background: rgba(0, 255, 136, 0.25);
+  border-color: #00ff88;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+  transform: translateY(-2px);
+}
+
+@keyframes introFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes introFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ======= HERO LOGO ANIMATIONS ======= */
+.hero-logo-float {
+  animation: heroLogoFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroLogoFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.02);
+  }
+}
+
+.hero-logo-glow {
+  filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.3)) drop-shadow(0 0 80px rgba(0, 255, 136, 0.15)) drop-shadow(0 0 120px rgba(0, 255, 136, 0.1));
+}
+
+/* ======= PULSE SLOW ANIMATION ======= */
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
