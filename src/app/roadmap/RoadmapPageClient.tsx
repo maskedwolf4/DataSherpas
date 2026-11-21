@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Lock } from 'lucide-react'
+import { ArrowRight, CircleCheck, Lock } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import DataFlowScene from '@/components/3d/DataFlowScene'
 
@@ -175,7 +175,7 @@ export default function RoadmapPageClient() {
                         {phase.skills.map((s) => (
                           <div key={s.name} className="flex items-center justify-between">
                             <div className="flex items-center gap-2 text-sm">
-                              <CheckCircle2 className={`w-3.5 h-3.5 flex-shrink-0 ${s.status === 'core' ? 'text-green-neon' : 'text-white/30'}`} />
+                              <CircleCheck className={`w-3.5 h-3.5 flex-shrink-0 ${s.status === 'core' ? 'text-green-neon' : 'text-white/30'}`} />
                               <span className={s.status === 'core' ? 'text-white/70' : 'text-white/35'}>{s.name}</span>
                             </div>
                             <span className={`text-xs font-medium ${s.status === 'core' ? 'text-green-neon/70' : 'text-white/25'}`}>

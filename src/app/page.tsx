@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, ChevronDown, Zap, Target, Users, TrendingUp, Star, CheckCircle2, Play, Code2, Database, Cpu, GitBranch } from 'lucide-react'
+import { ArrowRight, ChevronDown, Zap, Target, Users, TrendingUp, Star, CircleCheck, Play, CodeXml, Database, Cpu, GitBranch } from 'lucide-react'
 import CountUp from '@/components/ui/CountUp'
 import Reveal from '@/components/ui/Reveal'
 import FloatingTorus from '@/components/3d/FloatingTorus'
@@ -22,7 +22,7 @@ const techStack = [
   { name: 'dbt', icon: Database, color: '#FF694A' },
   { name: 'Airflow', icon: Target, color: '#007A88' },
   { name: 'AWS / GCP / Azure', icon: Cpu, color: '#FF9900' },
-  { name: 'Python / SQL', icon: Code2, color: '#3776AB' },
+  { name: 'Python / SQL', icon: CodeXml, color: '#3776AB' },
   { name: 'Databricks', icon: Zap, color: '#FF3621' },
   { name: 'Snowflake', icon: Database, color: '#29B5E8' },
 ]
@@ -196,7 +196,7 @@ export default function HomePage() {
                 <div className="flex flex-wrap gap-x-8 gap-y-3">
                   {['No prior DE experience needed', 'Flexible learning — live + async', 'Placement guarantee on select plans'].map((item) => (
                     <div key={item} className="flex items-center gap-2 text-sm text-white/50">
-                      <CheckCircle2 className="w-4 h-4 text-green-neon flex-shrink-0" />
+                      <CircleCheck className="w-4 h-4 text-green-neon flex-shrink-0" />
                       {item}
                     </div>
                   ))}
@@ -301,7 +301,7 @@ export default function HomePage() {
                     <div className="space-y-2 mb-8">
                       {program.highlights.map((h) => (
                         <div key={h} className="flex items-center gap-2 text-sm text-white/60">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-green-neon flex-shrink-0" />
+                          <CircleCheck className="w-3.5 h-3.5 text-green-neon flex-shrink-0" />
                           {h}
                         </div>
                       ))}

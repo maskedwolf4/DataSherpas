@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Phone, MapPin, MessageSquare, Clock, ArrowRight, CheckCircle2, Linkedin, Twitter, Youtube } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageSquare, Clock, ArrowRight, CircleCheck } from 'lucide-react'
+import { Linkedin, Twitter, Youtube } from '@/components/icons/SocialIcons'
 import Reveal from '@/components/ui/Reveal'
 
 const goals = [
@@ -69,7 +70,7 @@ export default function ContactPageClient() {
                 {submitted ? (
                   <div className="card-glass p-12 text-center h-full flex flex-col items-center justify-center gap-6">
                     <div className="w-20 h-20 rounded-full bg-green-neon/10 border-2 border-green-neon flex items-center justify-center">
-                      <CheckCircle2 className="w-10 h-10 text-green-neon" />
+                      <CircleCheck className="w-10 h-10 text-green-neon" />
                     </div>
                     <h2 className="font-display font-bold text-3xl text-white">We&apos;ve Got Your Message!</h2>
                     <p className="text-white/55 max-w-sm text-center">
