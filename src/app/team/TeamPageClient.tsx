@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Linkedin, Twitter, Github, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { Linkedin, Twitter, Github } from '@/components/icons/SocialIcons'
 import Reveal from '@/components/ui/Reveal'
 
 const founders = [

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { CheckCircle2, ArrowRight, Clock, Users, BarChart3, Zap, Star, ChevronDown } from 'lucide-react'
+import { CircleCheck, ArrowRight, Clock, Users, ChartColumn, Zap, Star, ChevronDown } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 
 const programs = [
@@ -99,9 +99,9 @@ export default function ProgramsPageClient() {
               Three career-defining programs. One goal: land you in the data engineering role you deserve.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/50">
-              <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-neon" /> Live sessions weekly</div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-neon" /> Expert 1:1 mentorship</div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-neon" /> Placement support</div>
+              <div className="flex items-center gap-2"><CircleCheck className="w-4 h-4 text-green-neon" /> Live sessions weekly</div>
+              <div className="flex items-center gap-2"><CircleCheck className="w-4 h-4 text-green-neon" /> Expert 1:1 mentorship</div>
+              <div className="flex items-center gap-2"><CircleCheck className="w-4 h-4 text-green-neon" /> Placement support</div>
             </div>
           </Reveal>
         </div>
@@ -132,7 +132,7 @@ export default function ProgramsPageClient() {
                       <div className="flex flex-wrap gap-6 mt-6 text-sm text-white/50">
                         <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-green-neon/60" />{prog.duration}</span>
                         <span className="flex items-center gap-2"><Users className="w-4 h-4 text-green-neon/60" />{prog.batchSize}</span>
-                        <span className="flex items-center gap-2"><BarChart3 className="w-4 h-4 text-green-neon/60" />{prog.level}</span>
+                        <span className="flex items-center gap-2"><ChartColumn className="w-4 h-4 text-green-neon/60" />{prog.level}</span>
                       </div>
                     </div>
 
@@ -146,7 +146,7 @@ export default function ProgramsPageClient() {
                       <div className="space-y-2">
                         {prog.outcomes.map((o) => (
                           <div key={o} className="flex items-center gap-2 text-xs text-white/60">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-green-neon flex-shrink-0" />
+                            <CircleCheck className="w-3.5 h-3.5 text-green-neon flex-shrink-0" />
                             {o}
                           </div>
                         ))}
@@ -226,7 +226,7 @@ export default function ProgramsPageClient() {
                         {prog.includes.map((inc) => (
                           <div key={inc} className="flex items-center gap-3">
                             <div className="w-5 h-5 rounded-full bg-green-neon/10 border border-green-neon/20 flex items-center justify-center flex-shrink-0">
-                              <CheckCircle2 className="w-3 h-3 text-green-neon" />
+                              <CircleCheck className="w-3 h-3 text-green-neon" />
                             </div>
                             <span className="text-white/60 text-sm">{inc}</span>
                           </div>
